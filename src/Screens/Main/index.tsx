@@ -70,6 +70,7 @@ export default function Main() {
             <QuestionTranslationContainer>
               {questionExample.words.map((word, index) => (
                 <WordItem
+                  key={word.original_word}
                   hasToShowTooltip={
                     canShowTooltip && wordTooltipIndex === index
                   }
