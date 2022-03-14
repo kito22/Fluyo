@@ -72,6 +72,7 @@ export default function Main() {
             <QuestionOriginalTitleContainer>
               {originalSentenceArray.map(word => (
                 <QuestionOriginalTitle
+                  key={word}
                   isHighlighted={
                     word === questionExample.word_to_learn_original
                   }>
