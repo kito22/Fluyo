@@ -23,7 +23,7 @@ export const ContentWrapper = styled.View`
 
 export const InstructionText = styled.Text`
   color: ${({ theme }) => theme.palette.fontPrimary};
-  font-size: 14px;
+  font-size: ${hp(14)}px;
 `;
 
 export const QuestionContainer = styled.View`
@@ -31,12 +31,26 @@ export const QuestionContainer = styled.View`
   align-items: center;
 `;
 
-export const QuestionOriginalTitle = styled.Text`
-  font-size: 24px;
-  color: ${({ theme }) => theme.palette.fontPrimary};
+export const QuestionOriginalTitleContainer = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
   width: 100%;
+`;
 
-  text-align: center;
+interface QuestionOriginalTitleProps {
+  isHighlighted: boolean;
+}
+
+export const QuestionOriginalTitle = styled.Text<QuestionOriginalTitleProps>`
+  font-size: ${hp(24)}px;
+  color: ${({ theme }) => theme.palette.fontPrimary};
+  margin-right: ${wp(8)}px;
+  font-weight: ${({ isHighlighted }) => (isHighlighted ? 'bold' : 'normal')};
+  text-decoration: ${({ isHighlighted }) =>
+    isHighlighted ? 'underline' : 'none'};
+  text-decoration-color: ${({ theme }) =>
+    theme.palette.primaryButtonBackground};
 `;
 
 export const QuestionTranslationContainer = styled.View`
@@ -60,7 +74,7 @@ export const OptionsContainer = styled.View`
 export const ContinueButton = styled.TouchableOpacity`
   width: 100%;
   height: ${hp(60)}px;
-  border-radius: 50px;
+  border-radius: ${wp(50)}px;
   background: ${({ theme, disabled }) =>
     disabled ? theme.palette.primaryButtonBackground : theme.palette.success};
 
@@ -70,7 +84,7 @@ export const ContinueButton = styled.TouchableOpacity`
 `;
 
 export const ContinueButtonText = styled.Text`
-  font-size: 18px;
-  color: #fff;
+  font-size: ${hp(18)}px;
+  color: ${({ theme }) => theme.palette.fontPrimary};
   font-weight: bold;
 `;

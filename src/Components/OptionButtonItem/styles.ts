@@ -7,7 +7,7 @@ interface OptionItemProps {
 
 export const OptionItem = styled.View<OptionItemProps>`
   width: 46%;
-  margin-bottom: 16px;
+  margin-bottom: ${hp(16)}px;
   align-items: ${({ isLeftSide }) => (isLeftSide ? 'flex-end' : 'flex-start')};
 `;
 

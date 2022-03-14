@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const Tooltip = styled.View`
-  background: #fff;
+  background: ${({ theme }) => theme.palette.secondaryButtonBackground};
   position: absolute;
   top: ${hp(-48)}px;
   padding: ${hp(8)}px ${wp(12)}px;
@@ -21,13 +21,13 @@ export const Tooltip = styled.View`
 `;
 
 export const TooltipText = styled.Text`
-  font-size: 16px;
+  font-size: ${hp(16)}px;
 `;
 
 export const QuestionTranslatedWordButton = styled.TouchableWithoutFeedback``;
 
 export const QuestionTranslatedWord = styled.Text`
-  font-size: 16px;
+  font-size: ${hp(16)}px;
   color: ${({ theme }) => theme.palette.fontPrimary};
   margin-right: ${wp(16)}px;
   margin-bottom: 4px;
@@ -72,14 +72,14 @@ export const FillContainer = styled.View<FillContainerProps>`
 
 export const Line = styled.View`
   height: 1px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.secondaryButtonBackground};
   width: 100%;
   margin-right: ${wp(16)}px;
-  margin-bottom: 8px;
+  margin-bottom: ${hp(8)}px;
 `;
 
 export const SelectedWord = styled.Text<FilledWordProps>`
-  font-size: 16px;
+  font-size: ${hp(16)}px;
   font-weight: bold;
   color: ${({ theme, isFinalAnswer }) =>
     isFinalAnswer ? theme.palette.fontPrimary : theme.palette.fontSecondary};

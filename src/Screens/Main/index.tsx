@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { AnswerFeedbackModal } from '../../Components/AnswerFeedbackModal';
 import { OptionButtonItem } from '../../Components/OptionButtonItem';
 import { WordItem } from '../../Components/WordItem';
@@ -14,6 +14,7 @@ import {
   OptionsContainer,
   ContinueButton,
   ContinueButtonText,
+  QuestionOriginalTitleContainer,
 } from './styles';
 
 export default function Main() {
@@ -58,15 +59,26 @@ export default function Main() {
     setSelectedOption(undefined);
   }, []);
 
+  const originalSentenceArray = useMemo(() => {
+    return questionExample.sentence_original.split(' ');
+  }, []);
+
   return (
     <Container>
       <ActionWrapper onPress={hideTooltip}>
         <ContentWrapper>
           <InstructionText>Fill in the missing word</InstructionText>
           <QuestionContainer>
-            <QuestionOriginalTitle>
-              {questionExample.sentence_original}
-            </QuestionOriginalTitle>
+            <QuestionOriginalTitleContainer>
+              {originalSentenceArray.map(word => (
+                <QuestionOriginalTitle
+                  isHighlighted={
+                    word === questionExample.word_to_learn_original
+                  }>
+                  {word}
+                </QuestionOriginalTitle>
+              ))}
+            </QuestionOriginalTitleContainer>
             <QuestionTranslationContainer>
               {questionExample.words.map((word, index) => (
                 <WordItem

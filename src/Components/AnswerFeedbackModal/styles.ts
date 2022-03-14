@@ -23,7 +23,7 @@ export const AnswerFeedbackContainer = styled.View<AnswerFeedbackProps>`
 export const AnswerFeedbackTitle = styled.Text`
   color: ${({ theme }) => theme.palette.fontPrimary};
 
-  font-size: 18px;
+  font-size: ${hp(18)}px;
   font-weight: 700;
 `;
 
@@ -41,6 +41,6 @@ export const ContinueModalButton = styled.TouchableOpacity`
 export const ContinueModalButtonText = styled.Text<AnswerFeedbackProps>`
   color: ${({ theme, success }) =>
     success ? theme.palette.success : theme.palette.error};
-  font-size: 18px;
+  font-size: ${hp(18)}px;
   font-weight: bold;
 `;
